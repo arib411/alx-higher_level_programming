@@ -16,7 +16,7 @@ class Square:
     @property
     def size(self):
         """Get/set the current size of the square."""
-        return (self.__size)
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -28,28 +28,40 @@ class Square:
 
     def area(self):
         """Return the current area of the square."""
-        return (self.__size * self.__size)
+        return self.__size * self.__size
 
     def __eq__(self, other):
         """Define the == comparision to a Square."""
-        return self.area() == other.area()
+        if isinstance(other, Square):
+            return self.area() == other.area()
+        return False
 
     def __ne__(self, other):
         """Define the != comparison to a Square."""
-        return self.area() != other.area()
+        if isinstance(other, Square):
+            return self.area() != other.area()
+        return True
 
     def __lt__(self, other):
         """Define the < comparison to a Square."""
-        return self.area() < other.area()
+        if isinstance(other, Square):
+            return self.area() < other.area()
+        return False
 
     def __le__(self, other):
         """Define the <= comparison to a Square."""
-        return self.area() <= other.area()
+        if isinstance(other, Square):
+            return self.area() <= other.area()
+        return False
 
     def __gt__(self, other):
         """Define the > comparison to a Square."""
-        return self.area() > other.area()
+        if isinstance(other, Square):
+            return self.area() > other.area()
+        return False
 
     def __ge__(self, other):
-        """Define the >= compmarison to a Square."""
-        return self.area() >= other.area()
+        """Define the >= comparison to a Square."""
+        if isinstance(other, Square):
+            return self.area() >= other.area()
+        return False
